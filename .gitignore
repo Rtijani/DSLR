@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+
+weights.json
+houses.csv
+
+histogram.png
+scatter_plot.png
+pair_plot.png
+describe_output.txt
+
+.vscode/
+.idea/
+.DS_Store
