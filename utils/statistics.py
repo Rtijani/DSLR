@@ -86,3 +86,36 @@ def percentile(values, percentage):
     upper_value = sorted_values[upper_index]
 
     return lower_value + (upper_value - lower_value) * fraction
+
+def variance(values):
+    n = len(values)
+
+    if n < 2:
+        return float("nan")
+
+    total = 0.0
+    for value in values:
+        total += value
+
+    mean_value = total / n
+
+    squared_difference = 0.0
+    for value in values:
+        squared_difference += (value - mean_value) ** 2
+
+    return squared_difference / (n - 1)
+
+def data_range(values):
+    if not values:
+        return float("nan")
+
+    smallest = values[0]
+    largest = values[0]
+
+    for value in values[1:]:
+        if value < smallest:
+            smallest = value
+        if value > largest:
+            largest = value
+
+    return largest - smallest

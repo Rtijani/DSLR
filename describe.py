@@ -15,52 +15,6 @@ def is_number(value):
 def read_dataset(filename):
     with open(filename, "r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
-        rows = list(reader)
-
-    return rows
-
-
-def get_numerical_features(rows):
-    numerical_features = {}
-
-    if not rows:
-        return numerical_features
-
-    for column in rows[0].keys():
-        values = []
-
-        for row in rows:
-            value = row[column]
-
-            if value != "" and is_number(value):
-                values.append(float(value))
-
-        if values:
-            numerical_features[column] = values
-
-    return numerical_features
-
-from utils.statistics import (
-    count,
-    mean,
-    minimum,
-    maximum,
-    standard_deviation,
-    percentile,
-)
-
-
-def is_number(value):
-    try:
-        float(value)
-        return True
-    except (ValueError, TypeError):
-        return False
-
-
-def read_dataset(filename):
-    with open(filename, "r", encoding="utf-8") as file:
-        reader = csv.DictReader(file)
         return list(reader)
 
 
@@ -95,6 +49,18 @@ def get_numerical_features(rows):
     return features
 
 
+from utils.statistics import (
+    count,
+    mean,
+    minimum,
+    maximum,
+    standard_deviation,
+    percentile,
+    variance,
+    data_range,
+)
+
+
 def display_statistics(features):
     statistics = {
         "Count": count,
@@ -105,17 +71,21 @@ def display_statistics(features):
         "50%": lambda values: percentile(values, 0.50),
         "75%": lambda values: percentile(values, 0.75),
         "Max": maximum,
+        "Variance": variance,
+        "Range": data_range,
     }
 
-    column_width = 34
-    label_width = 10
+    label_width = 12
+    column_width = 16
 
-    print(" " * label_width, end="")
+    # Display the feature names
+    print(f"{'':<{label_width}}", end="")
 
     for feature in features:
         print(f"{feature:>{column_width}}", end="")
     print()
 
+    # Display the statistics
     for name, function in statistics.items():
         print(f"{name:<{label_width}}", end="")
 

@@ -80,7 +80,8 @@ def correlation(points):
         numerator += dx * dy
         denominator_x += dx * dx
         denominator_y += dy * dy
-
+        
+#Pearson correlation coefficient manually
     denominator = (denominator_x * denominator_y) ** 0.5
 
     if denominator == 0:

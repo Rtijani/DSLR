@@ -112,3 +112,39 @@ Percentiles
 standard deviation is the average distance from the mean. which is also the root of the variance
 
 for the homogeneous score distribution I would say care of magical creatures and arithmancy oberlapped very well/significantly 
+
+with the histogram look carefully how the  4 colors overlapped significantly you will see a perfect example is the CARE OF MAGICAL CREATURES
+ there you can explain that they have their score almost evenly spread.
+
+ SCATTER PLOT 
+ this us ysed to show relationship between 2 numerical variables.for the purpose of this project i would say we did t so that it will return the best pair/best correlation if you check the result of astronomy and the defense agaainst the dark art u will see its the perfect example when astronomy increases the defense against dart art decreases. 
+
+ these 2 shows perfect negative linear relationship and thts why we could get a straight line 
+
+ they also have the strongest relation
+#Pearson correlation coefficient manually
+ there is also a place in the code where we did this and numerator = 0.0
+    denominator_x = 0.0
+    denominator_y = 0.0
+
+    for x, y, _ in points:
+        dx = x - mean_x
+        dy = y - mean_y
+
+        numerator += dx * dy
+        denominator_x += dx * dx
+        denominator_y += dy * dy
+
+    denominator = (denominator_x * denominator_y) ** 0.5
+
+    Pearson correlation coefficient manually
+
+    do not forget correlation coefficience measures the strength and direction of a linear relationship
+    so if r = -0.98 or r = 0.98   theyy ar both strong  the + and - sign are just simply showing what direction they are going 
+
+
+    pair plot
+    unlike scatter plot which lets u compare btw 2 numerical variables pair plot allows us to compare btw multiple numerical featurs against one another 
+
+    logreg_train
+    this was where we 
